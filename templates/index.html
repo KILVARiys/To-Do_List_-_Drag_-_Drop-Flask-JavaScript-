@@ -1,0 +1,48 @@
+<!-- Базовая структура -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задачи</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Задачи</h1>
+    
+    <!-- Форма для создания задачи -->
+    <form id="create-task-form">
+        <input type="text" id="new-task-title" placeholder="Название задачи" required>
+        <textarea id="new-task-description" placeholder="Описание задачи (необязательно)" rows="3"></textarea>
+        <button type="submit">Создать задачу</button>
+    </form>
+
+    <!-- Модальное окно для описания задачи -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <!-- Три колонки -->
+    <div class="kanban-board">
+        <div class="column">
+            <h2>Новые</h2>
+            <div id="new-tasks" class="task-list"></div>
+        </div>
+        
+        <div class="column">
+            <h2>В работе</h2>
+            <div id="in-progress-tasks" class="task-list"></div>
+        </div>
+        
+        <div class="column">
+            <h2>Готово</h2>
+            <div id="done-tasks" class="task-list"></div>
+        </div>
+    </div> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
